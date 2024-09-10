@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "@okta/okta-react": "^6.4.3",
+    "@okta/okta-signin-widget": "^6.3.3",
     "@types/react-router-dom": "^5.3.3",
     "react-router-dom": "^5.3.4"
   }
