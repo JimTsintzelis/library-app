@@ -2,6 +2,7 @@ import { useOktaAuth } from "@okta/okta-react";
 import { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { AdminMessages } from "./components/AdminMessages";
+import { ChangeQuantityOfBooks } from "./components/ChangeQuantityOfBooks";
 
 export const ManageLibraryPage = () => {
     
@@ -47,7 +48,7 @@ export const ManageLibraryPage = () => {
                     data-bs-target='#nav-quantity' type='button' role='tab' aria-controls='nav-quantity'
                     aria-selected='true'
                     >
-                        Change Quantity
+                        <ChangeQuantityOfBooks/>
                     </button>
                     <button onClick={messagesClickFunction} className='nav-link' id= 'nav-messages-tab' data-bs-toggle='tab'
                     data-bs-target='#nav-messages' type='button' role='tab' aria-controls='nav-messages'
