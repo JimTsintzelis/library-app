@@ -34,6 +34,10 @@ export const BookCheckoutPage =() => {
     const [isCheckedOut, setIsCheckedOut]= useState(false);
     const [isLoadingBookCheckedOut, setIsLoadingBooksCheckedOut] = useState(true);
 
+    // Payment
+    const [displayError, setDisplayError] = useState(false);
+
+
     const bookId = (window.location.pathname).split('/')[2];
 
     useEffect(() => {
@@ -239,9 +243,11 @@ export const BookCheckoutPage =() => {
         };
         const checkoutResponse = await fetch(url, requestOptions);
         if (!checkoutResponse.ok) {
+            setDisplayError(true);
             throw new Error('Somethinh went wrong!');
 
         }
+        setDisplayError(false);
         setIsCheckedOut(true);
     }
 
@@ -271,6 +277,11 @@ export const BookCheckoutPage =() => {
     return (
         <div>
             <div className='container d-none d-lg-block'>
+                {displayError && <div className='alert alert-danger mt-3' role='alert'> 
+                Please pay outstanding feed and/or return late book(s).
+                </div>
+                
+                }
                 <div className='row mt-5'>
                     <div className='col-sm-2 col-md-2'>
                         {book?.img ?
